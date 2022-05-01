@@ -1,0 +1,53 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+	<style>
+		:root {
+			color-scheme: dark light;
+
+			--left-cube: red;
+			--right-cube: cyan;
+			--mix-blend-mode: lighten;
+		}
+
+		@media (prefers-color-scheme: light) {
+			:root {
+				--left-cube: cyan;
+				--right-cube: red;
+				--mix-blend-mode: darken;
+			}
+		}
+
+		path {
+			fill: none;
+			stroke-width: 30;
+			stroke-linejoin: round;
+			mix-blend-mode: var(--mix-blend-mode);
+		}
+
+		.right-cube {
+			stroke: var(--left-cube);
+		}
+
+		.left-cube {
+			stroke: var(--right-cube);
+		}
+	</style>
+
+	<symbol id="cube">
+		<path d="
+			M 15 135
+			h 270
+			v 270
+			h-270
+			v-270
+			l 120-120
+			h 270
+			v 270
+			l-120 120
+			M 405 15
+			l-120 120
+		" />
+	</symbol>
+
+	<use href="#cube" class="left-cube" x="0" y="30" />
+	<use href="#cube" class="right-cube" x="60" y="30" />
+</svg>
